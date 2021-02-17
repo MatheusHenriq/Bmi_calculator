@@ -60,6 +60,25 @@ class _MainScreenState extends State<MainScreen> {
     });   
   }
 
+  void increment_weightvalue(){
+    
+        _weightvalue++;
+        
+  }
+  void decrement_weightvalue(){
+    
+        _weightvalue--;
+        
+  }
+  void increment_agevalue(){
+   
+        _agevalue++;
+  }
+  void decrement_agevalue(){ 
+        
+        _agevalue--;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -158,6 +177,8 @@ class _MainScreenState extends State<MainScreen> {
                 children: [
                   Expanded(
                     child:ButtonsCard(
+                      onpressedplus: increment_weightvalue,
+                      onpressedminus: decrement_weightvalue,
                       buttonvalue: _weightvalue,
                       label : 'PESO'
                     )
@@ -165,6 +186,8 @@ class _MainScreenState extends State<MainScreen> {
                    Expanded(
                     child:ButtonsCard(
                       buttonvalue: _agevalue,
+                      onpressedplus: increment_agevalue,
+                      onpressedminus: decrement_agevalue,
                       label : 'IDADE'
                     ),
                   ),
@@ -186,7 +209,7 @@ class _MainScreenState extends State<MainScreen> {
                   },
                   child: Center(
                     child: Text(
-                      'Calcular',
+                      'CALCULAR',
                       style: kBottomButtonTextStyle,
                     )
                   ),

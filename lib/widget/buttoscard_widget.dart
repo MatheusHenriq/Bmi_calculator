@@ -8,10 +8,14 @@ class ButtonsCard extends StatefulWidget {
     Key key,
     @required int buttonvalue,
     @required String label,
+    this.onpressedplus,
+    this.onpressedminus,
   }) : buttonvalue = buttonvalue, label = label, super(key: key);
   
   final int buttonvalue;
   final String label;
+  final Function() onpressedplus;
+  final Function() onpressedminus;
 
   @override
   _ButtonsCardState createState() => _ButtonsCardState(buttonvalue,label);
@@ -23,13 +27,13 @@ class _ButtonsCardState extends State<ButtonsCard> {
   String label;
   _ButtonsCardState(this.buttonvalue,this.label);
   
-  void setPlusWeight(){
+  void increment_buttonvalue(){
     setState(() {
-          buttonvalue++;        
+          buttonvalue++;
         });
   }
 
-  void setMinusWeight(){
+  void decrement_buttonvalue(){
     setState(() {
           buttonvalue--;
         });
@@ -56,14 +60,20 @@ class _ButtonsCardState extends State<ButtonsCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MaterialButton(
-                  onPressed: setMinusWeight,
+                  onPressed: (){
+                    widget.onpressedminus();
+                    decrement_buttonvalue();
+                  },
                   child: Icon(FontAwesomeIcons.minus),
                   color : kFloatingButtonColor,
                   shape: CircleBorder(),
                   padding: EdgeInsets.all(15)
                 ),
                 MaterialButton(
-                  onPressed: setPlusWeight,
+                  onPressed: (){
+                    widget.onpressedplus();
+                    increment_buttonvalue();
+                  },
                   child: Icon(FontAwesomeIcons.plus),
                   color : kFloatingButtonColor,
                   shape: CircleBorder(),
