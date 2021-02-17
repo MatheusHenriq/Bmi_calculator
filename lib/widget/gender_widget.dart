@@ -13,6 +13,7 @@ class MainCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       child : child,
       margin: const EdgeInsets.all(5),
       decoration: BoxDecoration(

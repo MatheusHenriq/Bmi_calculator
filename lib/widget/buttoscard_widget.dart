@@ -23,6 +23,17 @@ class _ButtonsCardState extends State<ButtonsCard> {
   String label;
   _ButtonsCardState(this.buttonvalue,this.label);
   
+  void setPlusWeight(){
+    setState(() {
+          buttonvalue++;        
+        });
+  }
+
+  void setMinusWeight(){
+    setState(() {
+          buttonvalue--;
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,22 +56,14 @@ class _ButtonsCardState extends State<ButtonsCard> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 MaterialButton(
-                  onPressed: (){
-                    setState(() {
-                      buttonvalue--;                                
-                    });
-                  },
+                  onPressed: setMinusWeight,
                   child: Icon(FontAwesomeIcons.minus),
                   color : kFloatingButtonColor,
                   shape: CircleBorder(),
                   padding: EdgeInsets.all(15)
                 ),
                 MaterialButton(
-                  onPressed: (){
-                    setState(() {
-                      buttonvalue++;                                
-                    });
-                  },
+                  onPressed: setPlusWeight,
                   child: Icon(FontAwesomeIcons.plus),
                   color : kFloatingButtonColor,
                   shape: CircleBorder(),

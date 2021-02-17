@@ -19,4 +19,20 @@ const kCountWidgetTextStyle = TextStyle(
                     fontWeight:FontWeight.bold
                   );
 const kFloatingButtonColor = Color(0xff8d8e98);
-            
+const klabelTextStyle = TextStyle(
+                    fontSize:40,
+                    fontWeight:FontWeight.bold
+                  );
+const kImcDescriptionTextStyle = TextStyle(
+                    fontSize:25,
+                    fontWeight:FontWeight.bold,
+                    color : Colors.green
+                  );
+const kImcNumberDescriptionWidgetTextStyle = TextStyle(
+                    fontSize:90,
+                    fontWeight:FontWeight.bold
+                  );
+const kBottomButtonWithoutBoldTextStyle = TextStyle(
+                    fontSize:25,                   
+                    color : Colors.white
+                  );
