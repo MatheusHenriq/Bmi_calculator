@@ -20,11 +20,11 @@ enum Gender{
 class _MainScreenState extends State<MainScreen> {
 
   Gender gender = Gender.female;
-  double _slidervalue = 175;
+  int _slidervalue = 175;
   int _weightvalue = 50 ;
   int _agevalue = 28;
   String _label = '';
-  double _imc_result= 0.0;
+  double _imc_result= 0;
   String _imc_bottomtext = '';
   void setImc(){
     setState(() {
@@ -164,7 +164,7 @@ class _MainScreenState extends State<MainScreen> {
                         ],
                       ), 
                       Slider(       
-                        value : _slidervalue,
+                        value : _slidervalue.toDouble(),
                         activeColor: kBottomButtonColor,
                         inactiveColor: Colors.white,
                         min : 120,
@@ -172,7 +172,7 @@ class _MainScreenState extends State<MainScreen> {
                         divisions: 130,
                         onChanged: (double value){
                           setState(() {
-                            _slidervalue = value;                          
+                            _slidervalue = value.toInt();                          
                           });
                         },
                       ), 
@@ -211,7 +211,7 @@ class _MainScreenState extends State<MainScreen> {
                     setImc();
                     setLabel();
                     Navigator.push(context,MaterialPageRoute(builder: (context)=> ResultScreen(
-                        imc_result:  _imc_result, 
+                        imc_result:  _imc_result.toDouble(), 
                         imc_description: _label,
                         imc_bottomtext: _imc_bottomtext,
                       )
