@@ -14,7 +14,7 @@ class MainScreen extends StatefulWidget {
 
 enum Gender{
   male,
-  female
+  female 
 }
 
 class _MainScreenState extends State<MainScreen> {
@@ -87,11 +87,17 @@ class _MainScreenState extends State<MainScreen> {
         title: Text('Calculadora de IMC')
       ),
       body: Container(
+
         child : Column(
+
           children: [
+            
             Expanded(
+
               child: Row(
+
                 children: [
+
                   Expanded(
                     child: GestureDetector(
                       onTap: (){
@@ -108,7 +114,8 @@ class _MainScreenState extends State<MainScreen> {
                         color: gender == Gender.male ? kActiveCardColor : kAInactiveCardColor
                       ),
                     ),
-                  ),  
+                  ), 
+
                    Expanded(
                     child: GestureDetector(
                       onTap:(){
@@ -130,6 +137,7 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
+
             Expanded(
               child: MainCard(
                 child: Column(
@@ -155,13 +163,13 @@ class _MainScreenState extends State<MainScreen> {
                           )                             
                         ],
                       ), 
-                      Slider(
+                      Slider(       
                         value : _slidervalue,
                         activeColor: kBottomButtonColor,
                         inactiveColor: Colors.white,
-                        min : 0,
+                        min : 120,
                         max : 250.0,
-                        divisions: 250,
+                        divisions: 130,
                         onChanged: (double value){
                           setState(() {
                             _slidervalue = value;                          
@@ -172,6 +180,7 @@ class _MainScreenState extends State<MainScreen> {
                 ),
               ),
             ),
+
             Expanded( 
               child: Row(
                 children: [
@@ -194,6 +203,7 @@ class _MainScreenState extends State<MainScreen> {
                 ],
               ),
             ),
+
             ContainerButton(
               child: FlatButton(
                   onPressed: (){ 
@@ -221,4 +231,3 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 }
-
